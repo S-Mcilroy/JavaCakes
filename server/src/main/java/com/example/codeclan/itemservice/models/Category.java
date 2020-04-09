@@ -1,23 +1,29 @@
 package com.example.codeclan.itemservice.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "categories")
 public class Category {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "name")
     private String name;
-
-    private List<FoodItem> fooditems;
+    @JsonBackReference
+   @OneToMany(mappedBy = "category")
+    private List<FoodItem> foodItems;
 
     public Category(String name) {
         this.name = name;
-        this.fooditems = new ArrayList<>();
+        this.foodItems = new ArrayList<>();
     }
+    public Category(){
+    };
 
     public Long getId() {
         return id;
@@ -35,18 +41,18 @@ public class Category {
         this.name = name;
     }
 
-    public List<FoodItem> getFooditems() {
-        return fooditems;
+    public List<FoodItem> getFoodItems() {
+        return foodItems;
     }
 
-    public void setFooditems(List<FoodItem> fooditems) {
-        this.fooditems = fooditems;
+    public void setFoodItems(List<FoodItem> fooditems) {
+        this.foodItems = fooditems;
     }
 
     public void addItem(FoodItem fooditem){
-        this.fooditems.add(fooditem);
+        this.foodItems.add(fooditem);
     }
     public void removeItem(FoodItem fooditem){
-        this.fooditems.remove(fooditem);
+        this.foodItems.remove(fooditem);
     }
 }

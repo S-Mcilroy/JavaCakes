@@ -1,20 +1,28 @@
 package com.example.codeclan.itemservice.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name = "shopping_list")
 public class ShoppingList {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "name")
     private String name;
-
+    @JsonBackReference
+    @OneToMany(mappedBy = "shoppingList")
     private List<FoodItem> foodItems;
 
     public ShoppingList(String name) {
         this.name = name;
         this.foodItems = new ArrayList<>();
     }
+    public ShoppingList(){}
 
     public Long getId() {
         return id;
@@ -42,7 +50,10 @@ public class ShoppingList {
 
     public void addFoodItem(FoodItem foodItem){
         this.foodItems.add(foodItem);
+        foodItem.setShoppingList(this);
     }
+
+
     public void removeFoodItem(FoodItem foodItem){
         this.foodItems.remove(foodItem);
     }

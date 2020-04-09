@@ -1,15 +1,26 @@
 package com.example.codeclan.itemservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "food_items")
 public class FoodItem {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "name")
     private String name;
-
+    @Column(name = "stock")
     private int stock;
-
+    @JsonIgnoreProperties("foodItems")
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-
+    @JsonIgnoreProperties("foodItems")
+    @ManyToOne
+    @JoinColumn(name = "shoppingList_id")
     private ShoppingList shoppingList;
 
     public FoodItem(String name, int stock, Category category) {
@@ -18,6 +29,7 @@ public class FoodItem {
         this.category = category;
 
     }
+    public FoodItem(){}
 
     public Long getId() {
         return id;

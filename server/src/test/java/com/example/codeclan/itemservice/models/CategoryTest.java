@@ -26,19 +26,19 @@ public class CategoryTest {
 
     @Test
     public void itemsStartEmpty() {
-        assertEquals(0, category.getFooditems().size());
+        assertEquals(0, category.getFoodItems().size());
     }
 
     @Test
     public void canAddFood() {
         category.addItem(foodItem);
-        assertEquals(1, category.getFooditems().size());
+        assertEquals(1, category.getFoodItems().size());
     }
 
     @Test
     public void canRemoveFood() {
         category.addItem(foodItem);
         category.removeItem(foodItem);
-        assertEquals(0,category.getFooditems().size());
+        assertEquals(0,category.getFoodItems().size());
     }
 }

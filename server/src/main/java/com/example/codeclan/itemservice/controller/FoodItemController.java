@@ -18,10 +18,7 @@ public class FoodItemController {
     @Autowired
     FoodItemRepository foodItemRepository;
 
-    @GetMapping
-    public ResponseEntity<List<FoodItem>> getAllFoodItems(){
-        return new ResponseEntity<>(foodItemRepository.findAll(), HttpStatus.OK);
-    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity getFoodItem(@PathVariable Long id){
         return new ResponseEntity<>(foodItemRepository.findById(id), HttpStatus.OK);
@@ -40,10 +37,18 @@ public class FoodItemController {
     public ResponseEntity<FoodItem> deleteFoodItem(@PathVariable Long id) {
         FoodItem found = foodItemRepository.getOne(id);
         foodItemRepository.delete(found);
-        return new ResponseEntity<>(found, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
     @GetMapping(value = "/onList")
     public ResponseEntity<List<FoodItem>> getFoodItemsOnShoppingList(){
        return new ResponseEntity<>(foodItemRepository.findByShoppingListTrue(),HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity findFoodItemsByCategory(@RequestParam(name = "category", required = false) String category){
+        if (category != null){
+            return new ResponseEntity(foodItemRepository.findByCategoryNameIgnoreCase(category), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(foodItemRepository.findAll(), HttpStatus.OK);
     }
 }

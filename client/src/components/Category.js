@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Request from "../helpers/Request";
+import FoodItemList from './FoodItemList';
 class Category extends Component{
 
 
@@ -26,7 +27,7 @@ class Category extends Component{
   return(
     <Fragment>
     <h1>{this.props.category.name}</h1>
-
+    <FoodItemList foodItems={this.state.foodItems}/>
     {/* So this is were we want to display fooditems on each category?*/}
     </Fragment>
   )

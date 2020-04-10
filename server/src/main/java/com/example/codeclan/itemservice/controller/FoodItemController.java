@@ -42,4 +42,8 @@ public class FoodItemController {
         foodItemRepository.delete(found);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
+    @GetMapping(value = "/onList")
+    public ResponseEntity<List<FoodItem>> getFoodItemsOnShoppingList(){
+       return new ResponseEntity<>(foodItemRepository.findByShoppingListTrue(),HttpStatus.OK);
+    }
 }

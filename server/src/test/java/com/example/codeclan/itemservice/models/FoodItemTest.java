@@ -9,13 +9,13 @@ public class FoodItemTest {
 
     Category category;
     FoodItem foodItem;
-    ShoppingList shoppingList;
+//    ShoppingList shoppingList;
 
     @Before
     public void before(){
         category = new Category("fridge");
         foodItem = new FoodItem("milk",1, category);
-        shoppingList = new ShoppingList("asda");
+
     }
 
     @Test
@@ -31,13 +31,12 @@ public class FoodItemTest {
         assertEquals("fridge", foodItem.getCategory().getName());
     }
     @Test
-    public void itemShouldStartWithNoList(){
-        assertEquals(null, foodItem.getShoppingList());
-    }
+    public void canCheckIfOnList(){assertEquals(false, foodItem.isOnShoppingList() );}
     @Test
     public void canAddToList(){
-        foodItem.setShoppingList(shoppingList);
-        assertEquals("asda",foodItem.getShoppingList().getName());
+        foodItem.putOnShoppingList();
+        assertEquals(true, foodItem.isOnShoppingList() );
     }
+
 }
 

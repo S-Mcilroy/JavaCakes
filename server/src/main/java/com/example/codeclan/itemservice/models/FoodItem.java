@@ -3,6 +3,8 @@ package com.example.codeclan.itemservice.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "food_items")
@@ -18,18 +20,19 @@ public class FoodItem {
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-    @JsonIgnoreProperties("foodItems")
-    @ManyToOne
-    @JoinColumn(name = "shoppingList_id")
-    private ShoppingList shoppingList;
+    @Column(name = "shopping_list")
+    private boolean shoppingList;
+
 
     public FoodItem(String name, int stock, Category category) {
         this.name = name;
         this.stock = stock;
         this.category = category;
+        this.shoppingList = false;
 
     }
     public FoodItem(){}
+
 
     public Long getId() {
         return id;
@@ -63,11 +66,18 @@ public class FoodItem {
         this.category = category;
     }
 
-    public ShoppingList getShoppingList() {
+    public boolean isOnShoppingList() {
         return shoppingList;
     }
 
-    public void setShoppingList(ShoppingList shoppingList) {
+    public void setShoppingList(boolean shoppingList) {
         this.shoppingList = shoppingList;
+    }
+
+    public void putOnShoppingList(){
+        this.shoppingList = true;
+    }
+    public void takeOffShoppingList(){
+        this.shoppingList = false;
     }
 }

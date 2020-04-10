@@ -2,10 +2,10 @@ package com.example.codeclan.itemservice.components;
 
 import com.example.codeclan.itemservice.models.Category;
 import com.example.codeclan.itemservice.models.FoodItem;
-import com.example.codeclan.itemservice.models.ShoppingList;
+//import com.example.codeclan.itemservice.models.ShoppingList;
 import com.example.codeclan.itemservice.repository.CategoryRepository;
 import com.example.codeclan.itemservice.repository.FoodItemRepository;
-import com.example.codeclan.itemservice.repository.ShoppingListRepository;
+//import com.example.codeclan.itemservice.repository.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,8 +16,8 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     CategoryRepository categoryRepository;
-    @Autowired
-    ShoppingListRepository shoppingListRepository;
+//    @Autowired
+//    ShoppingListRepository shoppingListRepository;
     @Autowired
     FoodItemRepository foodItemRepository;
 
@@ -38,16 +38,9 @@ public class DataLoader implements ApplicationRunner {
         foodItemRepository.save(lemonade);
 
         FoodItem chips = new FoodItem("Chips", 4, freezer);
+        chips.putOnShoppingList();
         foodItemRepository.save(chips);
 
-        ShoppingList asda = new ShoppingList("Asda");
-        shoppingListRepository.save(asda);
 
-        asda.addFoodItem(milk);
-        asda.addFoodItem(chips);
-        asda.addFoodItem(lemonade);
-        shoppingListRepository.save(asda);
-        milk.setShoppingList(asda);
-        foodItemRepository.save(milk);
     }
 }

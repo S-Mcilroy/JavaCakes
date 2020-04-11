@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-{/*started writing this to save time. check with team in the morning if it is correct.*/}
+import Request from '../helpers/Request';
 
 class FoodItemForm extends Component{
   constructor(props){
@@ -13,17 +13,18 @@ class FoodItemForm extends Component{
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCategory = this.handleCategory.bind(this);
   }
 
   componentDidMount(){
     if(this.props.foodItem){
-      this.setState({foodItem: {... this.props.foodItem}})
+      this.setState({foodItem: {...this.props.foodItem}})
     }
   }
 
   findCategoryIndex(){
     if(this.props.foodItem){
-      return this.props.category.findIndex(category => this.props.foodItem.category.id === category.id)
+      return this.props.categories.findIndex(category => this.props.foodItem.category.id === category.id)
     } else {
       return null;
     }
@@ -45,9 +46,17 @@ class FoodItemForm extends Component{
     }
   }
 
+  handleCategory(event){
+    const index = parseInt(event.target.value)
+    const selectedCategory = this.props.categories[index]
+    let foodItem = this.state.foodItem;
+    foodItem['category'] = selectedCategory
+    this.setState({foodItem: foodItem})
+  }
+
   render(){
 
-    if(this.props.category.length === 0){
+    if(!this.props.categories){
       return <p>Please wait...</p>
     }
     let heading = ""
@@ -57,13 +66,18 @@ class FoodItemForm extends Component{
     } else {
       heading = "Edit" + this.props.foodItem.name;
     }
+
+    const categoryOptions = this.props.categories.map((category, index) => {
+      return <option key={index} value={index}>{category.name}</option>
+    })
+
     return(
-      <div className = "foodIteamForm">
-      <h3>{heafing}</h3>
+      <div className = "foodItemForm">
+      <h3>{heading}</h3>
       <form onSubmit={this.handleSubmit}>
       <input type="text" placeholder="name of Item" name="name" onChange={this.handleChange} value={this.state.foodItem.name}/>
       <input type="number" placeholder="stock" name="stock" onChange={this.handleChange} value={this.state.foodItem.stock}/>
-      <select name="category" defaultValue={this.findCategoryIndex() || 'select-category' }>
+      <select name="category" defaultValue={this.findCategoryIndex() || 'select-category' } onChange={this.handleCategory}>
       <option disabled value="select-category">Where would you like to put this Item?</option>
       {categoryOptions}
       </select>

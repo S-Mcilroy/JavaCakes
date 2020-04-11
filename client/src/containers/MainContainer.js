@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
 import CategoryContainer from "./CategoryContainer";
 import ShoppingListContainer from "./ShoppingListContainer";
+import FoodItemContainer from "./FoodItemContainer";
 
 
 const MainContainer = () => {
@@ -13,9 +14,10 @@ const MainContainer = () => {
       <NavBar/>
       <Switch>
         <Route path="/categories" component={CategoryContainer} />
+        <Route path="/fooditems/new" render={() => {
+          return <FoodItemContainer/>
+        }} />
       </Switch>
-
-
       </Fragment>
       </Router>
     )

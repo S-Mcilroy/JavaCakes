@@ -17,7 +17,7 @@ class FoodItemForm extends Component{
 
   componentDidMount(){
     if(this.props.foodItem){
-      this.setState({foodiItem: {... this.props.foodItem}})
+      this.setState({foodItem: {... this.props.foodItem}})
     }
   }
 
@@ -47,30 +47,30 @@ class FoodItemForm extends Component{
 
   render(){
 
-  if(this.props.category.length === 0){
-    return <p>Please wait...</p>
-  }
-let heading = ""
+    if(this.props.category.length === 0){
+      return <p>Please wait...</p>
+    }
+    let heading = ""
 
-  if (!this.props.foodItem){
-    heading = "Create New Item"
-  } else {
-    heading = "Edit" + this.props.foodItem.name;
-  }
-return(
-  <div className = "foodIteamForm">
-  <h3>{heafing}</h3>
-  <form onSubmit={this.handleSubmit}>
-  <input type="text" placeholder="name of Item" name="name" onChange={this.handleChange} value={this.state.foodItem.name}/>
-  <input type="number" placeholder="stock" name="stock" onChange={this.handleChange} value={this.state.foodItem.stock}/>
-  <select name="category" defaultValue={this.findCategoryIndex() || 'select-category' }>
-  <option disabled value="select-category">Where would you like to put this Item?</option>
-  {categoryOptions}
-  </select>
-  <button type="submit">Add Item to stock</button>
-  </form>
-  </div>
-)
+    if (!this.props.foodItem){
+      heading = "Create New Item"
+    } else {
+      heading = "Edit" + this.props.foodItem.name;
+    }
+    return(
+      <div className = "foodIteamForm">
+      <h3>{heafing}</h3>
+      <form onSubmit={this.handleSubmit}>
+      <input type="text" placeholder="name of Item" name="name" onChange={this.handleChange} value={this.state.foodItem.name}/>
+      <input type="number" placeholder="stock" name="stock" onChange={this.handleChange} value={this.state.foodItem.stock}/>
+      <select name="category" defaultValue={this.findCategoryIndex() || 'select-category' }>
+      <option disabled value="select-category">Where would you like to put this Item?</option>
+      {categoryOptions}
+      </select>
+      <button type="submit">Add Item to stock</button>
+      </form>
+      </div>
+    )
   }
 }
 

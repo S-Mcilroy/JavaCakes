@@ -66,7 +66,7 @@ public class FoodItem {
         this.category = category;
     }
 
-    public boolean isOnShoppingList() {
+    public boolean isShoppingList() {
         return shoppingList;
     }
 

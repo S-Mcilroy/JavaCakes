@@ -3,8 +3,6 @@ package com.example.codeclan.itemservice.models;
 import org.junit.Before;
 import org.junit.Test;
 
-import sun.awt.geom.AreaOp;
-
 import static org.junit.Assert.assertEquals;
 
 public class CategoryTest {

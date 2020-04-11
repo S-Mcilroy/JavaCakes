@@ -31,11 +31,11 @@ public class FoodItemTest {
         assertEquals("fridge", foodItem.getCategory().getName());
     }
     @Test
-    public void canCheckIfOnList(){assertEquals(false, foodItem.isOnShoppingList() );}
+    public void canCheckIfOnList(){assertEquals(false, foodItem.isShoppingList() );}
     @Test
     public void canAddToList(){
         foodItem.putOnShoppingList();
-        assertEquals(true, foodItem.isOnShoppingList() );
+        assertEquals(true, foodItem.isShoppingList() );
     }
 
 }

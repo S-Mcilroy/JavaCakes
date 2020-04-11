@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodItem from "./FoodItem";
+import FoodItemDetail from "./FoodItemDetail";
 
 
 
@@ -14,7 +14,7 @@ const FoodItemList = (props) => {
 	  return (
 	    <li key={index} className="component-item">
 	    <div className="component">
-      <FoodItem foodItem={foodItem}/>
+      <FoodItemDetail foodItem={foodItem}/>
 	    </div>
 	    </li>
 	  )

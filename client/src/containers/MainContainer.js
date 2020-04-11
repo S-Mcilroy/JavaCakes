@@ -14,9 +14,8 @@ const MainContainer = () => {
       <NavBar/>
       <Switch>
         <Route path="/categories" component={CategoryContainer} />
-        <Route path="/fooditems/new" render={() => {
-          return <FoodItemContainer/>
-        }} />
+        <Route path="/fooditems/new" component={FoodItemContainer}/>
+        <Route path="/shoppinglist" component={ShoppingListContainer}/>
       </Switch>
       </Fragment>
       </Router>

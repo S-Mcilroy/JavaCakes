@@ -1,0 +1,57 @@
+import React, {Component} from 'react';
+
+class CategoryForm extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      category:{
+        name: ""
+      }
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+    if(this.props.category){
+      this.setState({category: {...this.props.category}})
+    }
+  }
+
+  handleChange(event){
+    let propertyName = event.target.name;
+    let category = this.state.category
+    category[propertyName] = event.target.value;
+    this.setState({category: category})
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    if(this.state.category.id){
+      this.props.onUpdate(this.state.category)
+    } else {
+      this.props.onCreate(this.state.category);
+    }
+  }
+
+  render(){
+    let heading = ""
+    if (!this.props.category){
+      heading = "Create New Item"
+    } else {
+      heading = "Edit" + this.props.category.name;
+    }
+
+    return(
+      <div className = "categoryForm">
+      <h3>{heading}</h3>
+      <form onSubmit={this.handleSubmit}>
+      <input type="text" placeholder="Name of Category" name="name" onChange={this.handleChange} value={this.state.category.name}/>
+      <button type="submit">Add Category</button>
+      </form>
+      </div>
+    )
+  }
+}
+
+export default CategoryForm;

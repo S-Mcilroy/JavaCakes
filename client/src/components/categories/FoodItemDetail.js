@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import Request from "../helpers/Request.js"
+import Request from "../../helpers/Request.js"
 import FoodItem from "./FoodItem";
-import {Link} from 'react-router-dom';
-{/* I think we moght need this page to add items to the shopping list.
-  Also go over this with the team in the morning. It doesnt seem right.*/}
 
 class FoodItemDetail extends Component {
   constructor(props){
@@ -21,7 +18,7 @@ class FoodItemDetail extends Component {
 
   addToShoppingList(){
      this.props.foodItem.shoppingList = true
-     const request = new Request;
+     const request = new Request();
      let newCounter = this.state.counter;
      const url = "/api/foodItems/" + this.props.foodItem.id
      request.patch(url, this.props.foodItem)
@@ -30,7 +27,7 @@ class FoodItemDetail extends Component {
 
   render(){
     if(!this.props.foodItem){
-      return "prepping.."
+      return "prepping..."
     }
     const isOnShoppingList = this.props.foodItem.shoppingList;
     let shoppingButton;
@@ -41,7 +38,7 @@ class FoodItemDetail extends Component {
     return (
       <div className = "component">
       <FoodItem foodItem = {this.props.foodItem}/>
-      <button onClick={this.deleteFoodItem}>Remove {this.props.foodItem.name}</button>
+      <button onClick={this.handleDelete}>Remove {this.props.foodItem.name}</button>
       {shoppingButton}
       </div>
     )

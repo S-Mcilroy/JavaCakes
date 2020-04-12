@@ -5,6 +5,7 @@ import CategoryContainer from "./CategoryContainer";
 import ShoppingListContainer from "./ShoppingListContainer";
 import FoodItemContainer from "./FoodItemContainer";
 import RecipeContainer from './RecipeContainer';
+import LowStockContainer from './LowStockContainer';
 
 
 const MainContainer = () => {
@@ -18,6 +19,7 @@ const MainContainer = () => {
         <Route path="/fooditems/new" component={FoodItemContainer}/>
         <Route path="/shoppinglist" component={ShoppingListContainer}/>
         <Route path='/recipes' component={RecipeContainer}/>
+        <Route path="/" component={LowStockContainer}/>
       </Switch>
       </Fragment>
       </Router>

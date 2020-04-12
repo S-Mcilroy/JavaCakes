@@ -61,7 +61,7 @@ class FoodItemForm extends Component{
     let heading = ""
 
     if (!this.props.foodItem){
-      heading = "Create New Item"
+      heading = "Add New Item"
     } else {
       heading = "Edit" + this.props.foodItem.name;
     }
@@ -72,7 +72,7 @@ class FoodItemForm extends Component{
 
     return(
       <div className = "foodItemForm">
-      <h3>{heading}</h3>
+      <h1>{heading}</h1>
       <form onSubmit={this.handleSubmit}>
       <input type="text" placeholder="name of Item" name="name" onChange={this.handleChange} value={this.state.foodItem.name}/>
       <input type="number" placeholder="stock" name="stock" onChange={this.handleChange} value={this.state.foodItem.stock}/>

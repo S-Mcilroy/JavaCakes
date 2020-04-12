@@ -1,16 +1,8 @@
-import React, {Component, Fragment}  from 'react';
+import React, {Fragment}  from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Request from '../helpers/Request';
 import RecipeList from '../components/recipes/RecipeList';
 
-class RecipeContainer extends Component{
-  constructor(props){
-  super(props)
-}
-
-
-
-  render(){
+const RecipeContainer = (props) => {
 
     return(
       <Router>
@@ -23,6 +15,5 @@ class RecipeContainer extends Component{
       </Fragment>
       </Router>
     )
-  }
 }
 export default RecipeContainer;

@@ -11,7 +11,7 @@ const NavBar = (props) => {
     <a href="/categories">Categories</a>
     </li>
     <li className="navLink">
-    <a href="/categories/new">Create category</a>
+    <a href="/categories/new">Add Category</a>
     </li>
     <li className='navLink'>
     <a href="/fooditems/new">Add Item</a>

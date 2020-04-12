@@ -1,6 +1,7 @@
 package com.example.codeclan.itemservice.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Category {
     @Column(name = "name")
     private String name;
     @JsonBackReference
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
    @OneToMany(mappedBy = "category")
     private List<FoodItem> foodItems;
 

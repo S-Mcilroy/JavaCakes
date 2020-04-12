@@ -6,7 +6,7 @@ class FoodItemDetail extends Component {
   constructor(props){
     super(props)
     this.state = {
-      counter: 0
+      foodItem: this.props.foodItem
     }
     this.handleDelete = this.handleDelete.bind(this);
     this.addToShoppingList = this.addToShoppingList.bind(this);
@@ -17,13 +17,15 @@ class FoodItemDetail extends Component {
   }
 
   addToShoppingList(){
-     this.props.foodItem.shoppingList = true
+    let foodItem = this.state.foodItem;
+    foodItem.shoppingList = true;
+     this.setState({foodItem: foodItem})
      const request = new Request();
-     let newCounter = this.state.counter;
-     const url = "/api/foodItems/" + this.props.foodItem.id
-     request.patch(url, this.props.foodItem)
-     .then(this.setState({counter: newCounter += 1}))
+     const url = "/api/foodItems/" + this.state.foodItem.id
+     request.patch(url, this.state.foodItem)
   }
+
+
 
   render(){
     if(!this.props.foodItem){
@@ -38,6 +40,7 @@ class FoodItemDetail extends Component {
     return (
       <div className = "component">
       <FoodItem foodItem = {this.props.foodItem}/>
+
       <button onClick={this.handleDelete}>Remove {this.props.foodItem.name}</button>
       {shoppingButton}
       </div>

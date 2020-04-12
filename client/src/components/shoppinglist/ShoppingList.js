@@ -4,7 +4,7 @@ import ShoppingListDetail from "./ShoppingListDetail"
 const ShoppingList = (props) => {
 
   	if (props.listItems.length === 0){
-  	  return (<p>Loading...</p>)
+  	  return (<p>Browsing...</p>)
   	}
 
   	const listItems = props.listItems.map((item, index) => {

@@ -10,6 +10,8 @@ class FoodItemDetail extends Component {
     }
     this.handleDelete = this.handleDelete.bind(this);
     this.addToShoppingList = this.addToShoppingList.bind(this);
+    this.addToStock = this.addToStock.bind(this);
+    this.removeStock = this.removeStock.bind(this);
   }
 
   handleDelete(){
@@ -23,6 +25,25 @@ class FoodItemDetail extends Component {
      const request = new Request();
      const url = "/api/foodItems/" + this.state.foodItem.id
      request.patch(url, this.state.foodItem)
+  }
+  addToStock(){
+    let foodItem = this.state.foodItem;
+    foodItem.stock += 1;
+    this.setState({foodItem: foodItem})
+    const request = new Request();
+    const url = '/api/foodItems/' + this.state.foodItem.id
+    request.patch(url, this.state.foodItem)
+  }
+  removeStock(){
+    let foodItem = this.state.foodItem;
+    if(foodItem.stock <= 0){
+      return null
+    }
+    foodItem.stock -= 1;
+    this.setState({foodItem: foodItem})
+    const request = new Request();
+    const url = '/api/foodItems/' + this.state.foodItem.id
+    request.patch(url, this.state.foodItem)
   }
 
 
@@ -40,7 +61,8 @@ class FoodItemDetail extends Component {
     return (
       <div className = "component">
       <FoodItem foodItem = {this.props.foodItem}/>
-
+      <button onClick={this.removeStock}>-</button>
+      <button onClick={this.addToStock}>+</button>
       <button onClick={this.handleDelete}>Remove {this.props.foodItem.name}</button>
       {shoppingButton}
       </div>

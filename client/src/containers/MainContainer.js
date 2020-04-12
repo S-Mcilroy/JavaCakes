@@ -4,6 +4,7 @@ import NavBar from '../NavBar.js';
 import CategoryContainer from "./CategoryContainer";
 import ShoppingListContainer from "./ShoppingListContainer";
 import FoodItemContainer from "./FoodItemContainer";
+import RecipeContainer from './RecipeContainer';
 
 
 const MainContainer = () => {
@@ -16,6 +17,7 @@ const MainContainer = () => {
         <Route path="/categories" component={CategoryContainer} />
         <Route path="/fooditems/new" component={FoodItemContainer}/>
         <Route path="/shoppinglist" component={ShoppingListContainer}/>
+        <Route path='/recipes' component={RecipeContainer}/>
       </Switch>
       </Fragment>
       </Router>

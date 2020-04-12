@@ -1,13 +1,17 @@
 import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 const FoodItem = (props) => {
   if(!props.foodItem){
   return "Loading..."
 }
+const url = "/recipes/" + props.foodItem.name;
 
 return(
   <Fragment>
-  <p>{props.foodItem.name}</p>
+  <a href= {url} className="name">
+    {props.foodItem.name}
+    </a>
   <p>Stock Level: {props.foodItem.stock}</p>
   </Fragment>
 )

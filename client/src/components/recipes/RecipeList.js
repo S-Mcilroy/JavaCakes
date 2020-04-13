@@ -69,6 +69,7 @@ class RecipeList extends Component{
         if(this.state.pageNumber === 10){
           return (
             <Fragment>
+            <h1>Recipes Featuring {this.props.ingredient}</h1>
             {recipes}
             <button onClick={this.increasePageNumber}>Next Page</button>
             </Fragment>

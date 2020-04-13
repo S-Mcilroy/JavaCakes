@@ -40,18 +40,21 @@ class ShoppingListDetail extends Component {
     let shoppingButton;
     let input;
     if (isOnShoppingList) {
-      input = <input type="number" min="0" name='stock' placeholder="Required Amount" onChange={this.handleChange}/>
+      input = <input type="number" min="0" name='stock' placeholder="Amount Bought" onChange={this.handleChange} required/>
       shoppingButton =   <button onClick={this.removeFromShoppingList}>Purchased</button>;
 }else{
-  input = <p>Item Purchased</p>
+  input = <p>Item bought!</p>
 }
 
 
     return (
-      <div className = "component">
+      <div className = "shopping-list-item">
       <ShoppingListItem item = {this.state.item}/>
       {input}
+      <p>
       {shoppingButton}
+      </p>
+
       </div>
     )
   }

@@ -8,7 +8,7 @@ class RecipeList extends Component{
     this.state = {
       recipes:[],
       foodItems:[],
-      pageNumber: 1
+      pageNumber: 10
     }
     this.increasePageNumber = this.increasePageNumber.bind(this);
     this.decreasePageNumber = this.decreasePageNumber.bind(this);
@@ -18,9 +18,6 @@ class RecipeList extends Component{
     let pageNumber = this.state.pageNumber;
     pageNumber += 1;
     this.setState({pageNumber: pageNumber})
-    let recipes = this.state.recipes;
-    recipes = []
-    this.setState({recipes: recipes})
     let nocors= `https://cors-anywhere.herokuapp.com/`
     const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
     return fetch(nocors + url)
@@ -33,9 +30,6 @@ class RecipeList extends Component{
     if (pageNumber === 0){return null;}
     pageNumber -= 1;
     this.setState({pageNumber: pageNumber})
-    let recipes = this.state.recipes;
-    recipes = []
-    this.setState({recipes: recipes})
     let nocors= `https://cors-anywhere.herokuapp.com/`
     const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
     return fetch(nocors + url)
@@ -72,7 +66,7 @@ class RecipeList extends Component{
           )
         });
 
-        if(this.state.pageNumber === 1){
+        if(this.state.pageNumber === 10){
           return (
             <Fragment>
             {recipes}
@@ -92,5 +86,3 @@ class RecipeList extends Component{
 
     }
     export default RecipeList;
-
-{/* Issue with page 5 of Peppers*/}

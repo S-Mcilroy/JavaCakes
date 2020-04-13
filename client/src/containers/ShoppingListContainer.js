@@ -27,7 +27,9 @@ class ShoppingListContainer extends Component{
 
     return(
       <Fragment>
+      <div className="shopping-list-container">
       <ShoppingList listItems={this.state.shoppingListItems}/>
+      </div>
       </Fragment>
     )
   }

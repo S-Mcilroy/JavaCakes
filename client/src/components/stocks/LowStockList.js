@@ -10,8 +10,8 @@ const LowStockList = (props) => {
   const foodItems = props.foodItems.map((foodItem, index) => {
     if(foodItem.stock < 2){
       return (
-        <li key={index} className="component-item">
-        <div className="component">
+        <li key={index}>
+        <div>
         <LowStockItem foodItem={foodItem}/>
         </div>
         </li>
@@ -21,10 +21,11 @@ const LowStockList = (props) => {
   })
 
   return (
-    <ul className="component-list">
-    <h1>Items on Low Stock</h1>
+    <div className="low-stock">
+    <ul>
     {foodItems}
     </ul>
+    </div>
   )
 }
 export default LowStockList;

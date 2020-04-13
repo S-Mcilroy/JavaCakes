@@ -9,8 +9,8 @@ const ShoppingList = (props) => {
 
   	const listItems = props.listItems.map((item, index) => {
   	  return (
-  	    <li key={index} className="component-item">
-  	    <div className="component">
+  	    <li key={index}>
+  	    <div>
         <ShoppingListDetail item={item}/>
   	    </div>
   	    </li>
@@ -18,9 +18,12 @@ const ShoppingList = (props) => {
   	})
 
   	return (
-  	  <ul className="component-list">
+      <div className="shopping-list">
+      <h1>My Shopping List</h1>
+  	  <ul>
   	    {listItems}
   	  </ul>
+      </div>
   	)
 
 }

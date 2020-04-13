@@ -1,13 +1,123 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #393A36;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
+
+.welcome h1{
+  text-align: center;
+}
+
+.nav-bar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #7D735D;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-bar li{
+  display: block;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.nav-bar a{
+
+  display: block;
+  background-color: #7D735D;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  color: #393A36;
+  font-size: 18px;
+}
+
+/* Change the link color on hover */
+.nav-bar li a:hover {
+  background-color: #EBEDEA;
+}
+
+.low-stock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.low-stock ul{
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.low-stock li{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  border: 1px #7D735D solid;
+  margin: 1%;
+}
+
+.welcome h2{
+  padding-left: 3%;
+}
+
+.low-stock-container{
+  margin-right: 40%;
+}
+
+.low-stock button{
+  font-size: 15px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.shopping-list-container{
+  padding-left: 3%;
+}
+
+.shopping-list{
+
+}
+
+.shopping-list ul{
+  height: 650px;
+  margin-right: 30%;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.shopping-list li{
+  padding-left: 1%;
+}
+
+
+
+{/*#EF9AAF
+  #E73740
+  #EBEDEA
+  #393A36
+#7D735D*/}

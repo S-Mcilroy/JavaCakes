@@ -38,17 +38,21 @@ class LowStockItem extends Component{
     if(this.state.foodItem.stock === 0){
       return (
         <Fragment>
-        <p>{this.state.foodItem.name}</p>
+        <div className="low-stock-item">
+        <p className='bold'>{this.state.foodItem.name}</p>
         <p>Stock Level: <span style={{color: 'red'}}>{this.state.foodItem.stock}</span></p>
         {shoppingButton}
+        </div>
         </Fragment>
       )
     } else {
       return (
         <Fragment>
-        <p>{this.state.foodItem.name}</p>
+        <div className="low-stock-item">
+        <p className='bold'>{this.state.foodItem.name}</p>
         <p>Stock Level: <span style={{color: 'orange'}}>{this.state.foodItem.stock}</span></p>
         {shoppingButton}
+        </div>
         </Fragment>
       )
     }

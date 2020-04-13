@@ -16,26 +16,32 @@ class LowStockContainer extends Component {
     request.get('/api/foodItems')
     .then((data) =>{
       this.setState({foodItems : data})})
-  }
-
-  render(){
-
-    if(!this.state.foodItems){
-      return null
     }
 
-    return (
-      <Router>
-      <Fragment>
-      <Switch>
-      <Route exact path="/" render={(props) => {
-        return <LowStockList foodItems={this.state.foodItems}/>
-      }} />
-      </Switch>
-      </Fragment>
-      </Router>
-    )
-  }
-}
+    render(){
 
-export default LowStockContainer;
+      if(!this.state.foodItems){
+        return null
+      }
+
+      return (
+        <Router>
+        <Fragment>
+        <Switch>
+        <div className="welcome">
+        <h1>Welcome To Portion</h1>
+        <h2>Running Low On:</h2>
+        <div className="low-stock-container">
+        <Route exact path="/" render={(props) => {
+          return <LowStockList foodItems={this.state.foodItems}/>
+        }} />
+        </div>
+        </div>
+        </Switch>
+        </Fragment>
+        </Router>
+      )
+    }
+  }
+
+  export default LowStockContainer;

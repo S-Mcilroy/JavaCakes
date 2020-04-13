@@ -2,6 +2,7 @@ import React from 'react';
 
 const NavBar = (props) => {
   return (
+    <div className="nav-bar">
     <header>
     <ul>
     <li className="navLink">
@@ -21,6 +22,7 @@ const NavBar = (props) => {
     </li>
     </ul>
     </header>
+    </div>
   )
 }
 

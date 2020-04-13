@@ -8,10 +8,10 @@ const NavBar = (props) => {
     <a href="/">Home</a>
     </li>
     <li className="navLink">
-    <a href="/categories">Categories</a>
+    <a href="/categories">Your Kitchen</a>
     </li>
     <li className="navLink">
-    <a href="/categories/new">Add Category</a>
+    <a href="/categories/new">Add Storage Location</a>
     </li>
     <li className='navLink'>
     <a href="/fooditems/new">Add Item</a>

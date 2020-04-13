@@ -37,7 +37,7 @@ class CategoryForm extends Component{
   render(){
     let heading = ""
     if (!this.props.category){
-      heading = "Add New Category"
+      heading = "Add New Food Storage"
     } else {
       heading = "Edit" + this.props.category.name;
     }
@@ -46,8 +46,8 @@ class CategoryForm extends Component{
       <div className = "categoryForm">
       <h1>{heading}</h1>
       <form onSubmit={this.handleSubmit}>
-      <input type="text" placeholder="Name of Category" name="name" onChange={this.handleChange} value={this.state.category.name}/>
-      <button type="submit">Add Category</button>
+      <input type="text" placeholder="Name of Location" name="name" onChange={this.handleChange} value={this.state.category.name} required/>
+      <button type="submit">Add Location</button>
       </form>
       </div>
     )

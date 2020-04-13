@@ -61,7 +61,7 @@ class RecipeList extends Component{
         const recipes = this.state.recipes.map((recipe, index) => {
           return (
             <div key={index}>
-            <RecipeItem recipeItem={recipe}/>
+            <RecipeItem recipeItem={recipe} foodItems={this.state.foodItems}/>
             </div>
           )
         });

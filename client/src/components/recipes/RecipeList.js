@@ -18,6 +18,7 @@ class RecipeList extends Component{
     let pageNumber = this.state.pageNumber;
     pageNumber += 1;
     this.setState({pageNumber: pageNumber})
+    this.setState({recipes: []})
     let nocors= `https://cors-anywhere.herokuapp.com/`
     const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
     return fetch(nocors + url)
@@ -30,6 +31,7 @@ class RecipeList extends Component{
     if (pageNumber === 0){return null;}
     pageNumber -= 1;
     this.setState({pageNumber: pageNumber})
+    this.setState({recipes: []})
     let nocors= `https://cors-anywhere.herokuapp.com/`
     const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
     return fetch(nocors + url)
@@ -69,17 +71,22 @@ class RecipeList extends Component{
         if(this.state.pageNumber === 10){
           return (
             <Fragment>
+            <div className="recipe-container">
             <h1>Recipes Featuring {this.props.ingredient}</h1>
             {recipes}
             <button onClick={this.increasePageNumber}>Next Page</button>
+            </div>
             </Fragment>
           )
         } else {
           return (
             <Fragment>
+            <div className="recipe-container">
+            <h1>Recipes Featuring {this.props.ingredient}</h1>
             {recipes}
             <button onClick={this.decreasePageNumber}>Previous Page</button>
             <button onClick={this.increasePageNumber}>Next Page</button>
+            </div>
             </Fragment>
           )
         }

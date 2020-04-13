@@ -75,15 +75,15 @@ class FoodItemForm extends Component{
       <h1>{heading}</h1>
       <form onSubmit={this.handleSubmit}>
       <div className="form-input">
-      <label for="name">Name:</label>
+      <label>Name:</label>
       <input type="text" placeholder="Enter name of food..." name="name" onChange={this.handleChange} value={this.state.foodItem.name} required/>
       </div>
       <div className="form-input">
-      <label for="stock">Amount:</label>
+      <label>Amount:</label>
       <input name="stock" onChange={this.handleChange} value={this.state.foodItem.stock} required min='1' value='1' placeholder="Amount"/>
       </div>
       <div className="form-input">
-      <label for="category">Stored In:</label>
+      <label>Stored In:</label>
       <select name="category" defaultValue={this.findCategoryIndex() || 'select-category' } onChange={this.handleCategory} required>
       <option disabled value="select-category">Where would you like to put this Item?</option>
       {categoryOptions}

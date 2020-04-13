@@ -8,16 +8,16 @@ const RecipeItem = (props) => {
   const foodNames = props.foodItems.map(foodItem => foodItem.name.toLowerCase())
 
   const ingredients = props.recipeItem.ingredients.split(",").filter(words => words.charAt(3) !== " ").map((ingredient, index) => {
-    if(foodNames.includes(ingredient)){
+    if(foodNames.includes(ingredient.trim())){
       return (
         <li key={index} className="component-item" style={{color: 'green'}}>
-        {ingredient}
+        {ingredient} ✅
         </li>
       )
     }
     return (
       <li key={index} className="component-item" style={{color: 'red'}}>
-      {ingredient}
+      {ingredient} ❌
       </li>
     )
   });
@@ -25,10 +25,13 @@ const RecipeItem = (props) => {
 
   return(
     <Fragment>
+    <div className="recipe-item">
     <a href= {props.recipeItem.href} className="name">{props.recipeItem.title}</a>
     <ul>
     {ingredients}
+    <hr/>
     </ul>
+    </div>
     </Fragment>
   )
 }

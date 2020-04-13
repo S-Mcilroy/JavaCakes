@@ -18,9 +18,9 @@ class ShoppingListDetail extends Component {
     item.shoppingList = false;
     item.stock += this.state.stockLevel
     this.setState({item: item})
-     const request = new Request();
-     const url = "/api/foodItems/" + this.state.item.id
-     request.patch(url, this.state.item)
+    const request = new Request();
+    const url = "/api/foodItems/" + this.state.item.id
+    request.patch(url, this.state.item)
 
   }
   handleChange(event){
@@ -42,9 +42,9 @@ class ShoppingListDetail extends Component {
     if (isOnShoppingList) {
       input = <input type="number" min="0" name='stock' placeholder="Amount Bought" onChange={this.handleChange} required/>
       shoppingButton =   <button onClick={this.removeFromShoppingList}>Purchased</button>;
-}else{
-  input = <p>Item bought!</p>
-}
+    }else{
+      input = <p>Item bought!</p>
+    }
 
 
     return (
@@ -54,7 +54,7 @@ class ShoppingListDetail extends Component {
       <p>
       {shoppingButton}
       </p>
-
+      <hr/>
       </div>
     )
   }

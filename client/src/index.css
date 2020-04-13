@@ -157,6 +157,40 @@ code {
   flex-grow: 2;
 }
 
+.recipe-container{
+  font-size: 20px;
+  margin-right: 50%;
+}
+
+.recipe-container h1{
+  padding-left: 3%;
+}
+
+.recipe-item {
+  text-align: center;
+}
+
+.recipe-item ul{
+  list-style-type: none;
+}
+
+.recipe-item a{
+  padding-left: 4%;
+  color: #393A36;
+}
+
+.recipe-item a:hover{
+  color: #EF9AAF;
+}
+
+.recipe-container button{
+  margin-bottom: 5%;
+  font-size: 20px;
+  margin-left: 25%;
+}
+
+
+
 {/*#EF9AAF
   #E73740
   #EBEDEA

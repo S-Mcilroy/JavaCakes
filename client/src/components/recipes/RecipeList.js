@@ -44,17 +44,19 @@ class RecipeList extends Component{
     const request = new Request();
     request.get('/api/foodItems')
     .then((data) =>{
-      this.setState({foodItems: data})})
+      this.setState({foodItems: data})});
+
+      request.get('/api/recipes')
+      .then((data) =>{
+        this.setState({yourRecipes:data})});
+
+        
       let nocors= `https://cors-anywhere.herokuapp.com/`
       const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
       return fetch(nocors + url)
       .then((res) => res.json())
       .then((data) =>{
         this.setState({recipes:data.results})})
-        request.get('/api/recipes')
-        .then((data) =>{
-          this.setState({yourRecipes:data})
-        })
       }
 
       render(){

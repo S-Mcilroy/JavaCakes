@@ -7,9 +7,9 @@ class RecipeItem extends Component{
     super(props)
     this.state ={
       recipe: {
-        title:this.props.recipeItem.title,
+        title: "",
         ingredients:[],
-        href:this.props.recipeItem.href
+        href: ""
       },
       counter: 0
 
@@ -21,7 +21,9 @@ class RecipeItem extends Component{
     let recipeIngredients = this.props.recipeItem.ingredients.split(",").filter(words => words.charAt(3) !== " ")
     let trimIngredients = recipeIngredients.map(ingredient => ingredient.trim())
     let recipe = this.state.recipe;
-    recipe["ingredients"] = trimIngredients
+    recipe["ingredients"] = trimIngredients;
+    recipe["title"] = this.props.recipeItem.title;
+    recipe["href"] = this.props.recipeItem.href;
     this.setState({recipe: recipe})
   }
 
@@ -29,13 +31,14 @@ class RecipeItem extends Component{
     const request = new Request();
     const url = "/api/recipes"
     request.post(url, this.state.recipe)
-  let counter = this.state.counter += 1;
-  this.setState({counter: counter})
+  let counter = this.state.counter;
+  this.setState({counter: counter +1})
+
     }
 
   render(){
 
-    const yourRecipesTitles = this.props.yourRecipes.map(recipe => recipe.title)
+    let yourRecipesTitles = this.props.yourRecipes.map(recipe => recipe.title)
 
     if(this.props.fooditems){
       return "Loading..."
@@ -43,7 +46,8 @@ class RecipeItem extends Component{
     const foodNames = this.props.foodItems.map(foodItem => {
       if(foodItem.stock > 0){
         return foodItem.name.toLowerCase()
-      }})
+      }
+    return null})
 
       const ingredients = this.props.recipeItem.ingredients.split(",").filter(words => words.charAt(3) !== " ").map((ingredient, index) => {
         if(foodNames.includes(ingredient.trim())){
@@ -60,12 +64,12 @@ class RecipeItem extends Component{
         )
       });
 
-if(this.state.counter === 0 || yourRecipesTitles.includes(this.props.recipeItem.title)){
+if(this.state.counter === 0 && !yourRecipesTitles.includes(this.props.recipeItem.title)){
 
       return(
         <Fragment>
         <div className="recipe-item">
-        <a href= {this.props.recipeItem.href} target='_blank' className="name">{this.props.recipeItem.title}</a>
+        <a href= {this.props.recipeItem.href} rel="noopener noreferrer" target='_blank' className="name">{this.props.recipeItem.title}</a>
         <ul>
         {ingredients}
         <button onClick={this.addToFavRecipes}>Add To Favourites</button>
@@ -78,7 +82,7 @@ if(this.state.counter === 0 || yourRecipesTitles.includes(this.props.recipeItem.
       return(
         <Fragment>
         <div className="recipe-item">
-        <a href= {this.props.recipeItem.href} target='_blank' className="name">{this.props.recipeItem.title}</a>
+        <a href= {this.props.recipeItem.href} rel="noopener noreferrer" target='_blank' className="name">{this.props.recipeItem.title}</a>
         <ul>
         {ingredients}
         <p>On Favourites</p>

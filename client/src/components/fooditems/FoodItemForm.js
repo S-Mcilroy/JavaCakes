@@ -80,7 +80,7 @@ class FoodItemForm extends Component{
       </div>
       <div className="form-input">
       <label>Amount:</label>
-      <input name="stock" onChange={this.handleChange} value={this.state.foodItem.stock} required min='1' value='1' placeholder="Amount"/>
+      <input name="stock" onChange={this.handleChange} value={this.state.foodItem.stock} required min='1' placeholder="Amount"/>
       </div>
       <div className="form-input">
       <label>Stored In:</label>

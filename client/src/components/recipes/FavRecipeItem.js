@@ -8,7 +8,8 @@ const FavRecipeItem = (props) => {
   const foodNames = props.foodItems.map(foodItem => {
     if(foodItem.stock > 0){
       return foodItem.name.toLowerCase()
-    }})
+    }
+    return null})
 
     const ingredients = props.recipeItem.ingredients.map((ingredient, index) => {
       if(foodNames.includes(ingredient.toLowerCase())){
@@ -27,29 +28,29 @@ const FavRecipeItem = (props) => {
 
     if(props.recipeItem.href){
 
-    return(
-      <Fragment>
-      <div className="recipe-item">
-      <a href= {props.recipeItem.href} target="_blank" className="name">{props.recipeItem.title}</a>
-      <ul>
-      {ingredients}
-      <hr/>
-      </ul>
-      </div>
-      </Fragment>
-    )
-  }else{
-    return(
-      <Fragment>
-      <div className="recipe-item">
-      <p className="name">{props.recipeItem.title}</p>
-      <ul>
-      {ingredients}
-      <hr/>
-      </ul>
-      </div>
-      </Fragment>
-    )
-  }
+      return(
+        <Fragment>
+        <div className="recipe-item">
+        <a href= {props.recipeItem.href} target="_blank" rel="noopener noreferrer" className="name">{props.recipeItem.title}</a>
+        <ul>
+        {ingredients}
+        <hr/>
+        </ul>
+        </div>
+        </Fragment>
+      )
+    }else{
+      return(
+        <Fragment>
+        <div className="recipe-item">
+        <p className="name">{props.recipeItem.title}</p>
+        <ul>
+        {ingredients}
+        <hr/>
+        </ul>
+        </div>
+        </Fragment>
+      )
+    }
   }
   export default FavRecipeItem;

@@ -58,7 +58,7 @@ public class DataLoader implements ApplicationRunner {
         FoodItem icecream = new FoodItem("Ice Cream", 1, freezer);
         foodItemRepository.save(icecream);
 
-        FoodItem peas = new FoodItem("peas", 2, freezer);
+        FoodItem peas = new FoodItem("Peas", 2, freezer);
         foodItemRepository.save(peas);
 
         FoodItem chips = new FoodItem("Chips", 4, freezer);

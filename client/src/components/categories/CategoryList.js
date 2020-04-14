@@ -11,8 +11,9 @@ const CategoryList = (props) => {
 
 	const categories = props.categories.map((category, index) => {
 	  return (
-	    <li key={index} className="component-item">
-	    <div className="component">
+	    <li key={index}>
+	    <div className="category-container">
+			<h1>{category.name}</h1>
       <Category category={category}/>
 	    </div>
 	    </li>
@@ -20,9 +21,11 @@ const CategoryList = (props) => {
 	})
 
 	return (
-	  <ul className="component-list">
+		<div className="category-container">
+	  <ul className="category-list">
 	    {categories}
 	  </ul>
+		</div>
 	)
 }
  export default CategoryList;

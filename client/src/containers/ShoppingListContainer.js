@@ -22,7 +22,12 @@ class ShoppingListContainer extends Component{
   render(){
 
     if(this.state.shoppingListItems.length === 0){
-      return "Your basket is Empty."
+      return (
+        <div>
+        <p>Your basket is Empty.</p>
+        <a href="/categories">Add some items from your kitchen.</a>
+        </div>
+      )
     }
 
     return(

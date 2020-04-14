@@ -11,7 +11,6 @@ return(
   <a href= {url} className="name">
     {props.foodItem.name}
     </a>
-  <p>Stock Level: {props.foodItem.stock}</p>
   </Fragment>
 )
 }

@@ -18,7 +18,6 @@ class Category extends Component{
     const url = "/api/foodItems/" + id
     request.delete(url)
     .then(() => {window.location = "/categories"})
-    {/* Relook at this later */}
   }
 
     onDeleteCategory(){
@@ -26,7 +25,6 @@ class Category extends Component{
       const url = "/api/categories/" + this.props.category.id
       request.delete(url)
       .then(() => {window.location = "/categories"})
-      {/* Relook at this later */}
     }
 
   componentDidMount(){
@@ -44,10 +42,8 @@ class Category extends Component{
 
     return(
       <Fragment>
-      <h1>{this.props.category.name}</h1>
-      <button onClick={this.onDeleteCategory}>Delete</button>
       <FoodItemList onDelete={this.onDelete} foodItems={this.state.foodItems}/>
-      {/* So this is were we want to display fooditems on each category?*/}
+      <button onClick={this.onDeleteCategory}>Delete {this.props.category.name}</button>
       </Fragment>
     )
   }

@@ -17,8 +17,13 @@ code {
   monospace;
 }
 
+h1{
+  color: #EF9AAF;
+  font-size: 40px;
+}
 .welcome h1{
   text-align: center;
+  font-size: 50px;
 }
 
 .nav-bar ul{
@@ -121,7 +126,7 @@ code {
 .form form{
   display: flex;
   flex-direction: column;
-    background-color: #EBEDEA;
+  background-color: #EBEDEA;
   width: 50%;
   height: 20%;
 }
@@ -191,7 +196,67 @@ code {
   margin-left: 25%;
 }
 
+.category-container{
+  margin-right: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
 
+.category-list{
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.food-list-item{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  border: 1px #7D735D solid;
+  margin: 1%;
+  background-color: #EBEDEA;
+}
+
+.food-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.food-item a{
+  padding-left: 4%;
+  color: #393A36;
+}
+
+.food-item a:hover{
+  color: #EF9AAF;
+}
+
+.buttons{
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons button{
+  padding-bottom: 4px;
+}
+
+.inactive{
+  display: none;
+}
+
+.active{
+
+}
+
+.text-box{
+}
 
 {/*#EF9AAF
   #E73740

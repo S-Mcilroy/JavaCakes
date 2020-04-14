@@ -34,9 +34,21 @@ class FavRecipeList extends Component{
 
       render(){
 
+        const links = this.state.foodItems.map((item, index) => {
+          const url = "/recipes/" + item.name;
+          return (
+            <div key={index}>
+            <li><a href={url}>Recipies containing: {item.name}</a></li>
+            </div>
+          )
+        });
+
         if(this.state.recipes.length === 0){
           return(
-            <p>You have no Recipes</p>
+            <div>
+            <p>You have no recipes yet, why not search for one of the items in your kitchen?</p>
+            {links}
+            </div>
           )
         }
 

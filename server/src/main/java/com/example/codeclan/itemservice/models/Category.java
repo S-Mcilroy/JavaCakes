@@ -17,7 +17,7 @@ public class Category {
     private String name;
     @JsonBackReference
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-   @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category")
     private List<FoodItem> foodItems;
 
     public Category(String name) {

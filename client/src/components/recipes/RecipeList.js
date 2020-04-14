@@ -50,7 +50,7 @@ class RecipeList extends Component{
       .then((data) =>{
         this.setState({yourRecipes:data})});
 
-        
+
       let nocors= `https://cors-anywhere.herokuapp.com/`
       const url = 'http://www.recipepuppy.com/api/?i=' + this.props.ingredient + "&p=" + this.state.pageNumber
       return fetch(nocors + url)
@@ -90,7 +90,7 @@ class RecipeList extends Component{
           return (
             <Fragment>
             <div className="recipe-container">
-            <h1>Recipes Featuring {this.props.ingredient}</h1>
+            <h1>Recipes Featuring {this.props.ingredient}.</h1>
             {recipes}
             <button onClick={this.decreasePageNumber}>Previous Page</button>
             <button onClick={this.increasePageNumber}>Next Page</button>

@@ -8,7 +8,7 @@ const FoodItemList = (props) => {
 
 		const foodItems = props.foodItems.map((foodItem, index) => {
 			return (
-				<li key={index} className="component-item">
+				<li key={index} className="food-list-item">
 				<div className="component">
 				<FoodItemDetail onDelete={props.onDelete} foodItem={foodItem}/>
 				</div>

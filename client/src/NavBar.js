@@ -20,6 +20,9 @@ const NavBar = (props) => {
     <li className="navLink">
     <a href="/categories/new">Add Storage Location</a>
     </li>
+    <li className="navLink">
+    <a href="/recipes">Your Recipes</a>
+    </li>
     </ul>
     </header>
     </div>

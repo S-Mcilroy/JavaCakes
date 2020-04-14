@@ -8,7 +8,8 @@ class RecipeList extends Component{
     this.state = {
       recipes:[],
       foodItems:[],
-      pageNumber: 10
+      pageNumber: 10,
+      yourRecipes:[]
     }
     this.increasePageNumber = this.increasePageNumber.bind(this);
     this.decreasePageNumber = this.decreasePageNumber.bind(this);
@@ -50,6 +51,10 @@ class RecipeList extends Component{
       .then((res) => res.json())
       .then((data) =>{
         this.setState({recipes:data.results})})
+        request.get('/api/recipes')
+        .then((data) =>{
+          this.setState({yourRecipes:data})
+        })
       }
 
       render(){
@@ -63,10 +68,11 @@ class RecipeList extends Component{
         const recipes = this.state.recipes.map((recipe, index) => {
           return (
             <div key={index}>
-            <RecipeItem recipeItem={recipe} foodItems={this.state.foodItems}/>
+            <RecipeItem recipeItem={recipe} foodItems={this.state.foodItems} yourRecipes = {this.state.yourRecipes}/>
             </div>
           )
         });
+
 
         if(this.state.pageNumber === 10){
           return (

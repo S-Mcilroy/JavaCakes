@@ -11,7 +11,16 @@ class FavRecipeList extends Component{
       foodItems:[],
     }
 
+    this.onDelete = this.onDelete.bind(this);
+
   }
+
+    onDelete(id){
+      const request = new Request();
+      const url = "/api/recipes/" + id
+      request.delete(url)
+      .then(() => {window.location = "/recipes"})
+    }
 
   componentDidMount(){
     const request = new Request();
@@ -34,7 +43,7 @@ class FavRecipeList extends Component{
         const recipes = this.state.recipes.map((recipe, index) => {
           return (
             <div key={index}>
-            <FavRecipeItem recipeItem={recipe} foodItems={this.state.foodItems}/>
+            <FavRecipeItem recipeItem={recipe} onDelete={this.onDelete} foodItems={this.state.foodItems}/>
             </div>
           )
         });
@@ -50,5 +59,5 @@ class FavRecipeList extends Component{
         )
       }
     }
-    
+
   export default FavRecipeList;

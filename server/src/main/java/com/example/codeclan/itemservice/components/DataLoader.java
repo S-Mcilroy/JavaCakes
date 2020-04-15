@@ -235,7 +235,7 @@ public class DataLoader implements ApplicationRunner {
         FoodItem choppedgarlic = new FoodItem("Chopped Garlic",1, spice);
         foodItemRepository.save(choppedgarlic);
 
-        FoodItem flour = new FoodItem("FLour",1, spice);
+        FoodItem flour = new FoodItem("Flour",1, spice);
         foodItemRepository.save(flour);
 
         FoodItem vegStock = new FoodItem("Vegetable Stock",11, spice);

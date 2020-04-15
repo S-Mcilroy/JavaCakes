@@ -93,6 +93,7 @@ ul {
   border: 1px #7D735D solid;
   margin: 1%;
   background-color: #EBEDEA;
+  font-size: 15px;
 }
 
 .welcome h2{
@@ -100,7 +101,8 @@ ul {
 }
 
 .low-stock-container{
-  margin-right: 40%;
+  margin-right: 20%;
+
 }
 
 .low-stock button{
@@ -275,6 +277,7 @@ ul {
 }
 
 .box-content{
+  margin-left: 60%;
   display: inline-block;
 }
 
@@ -292,9 +295,9 @@ ul {
 
 .welcome-contain{
   width: 60%;
-  display:flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  display:inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 {/*#EF9AAF
   #E73740

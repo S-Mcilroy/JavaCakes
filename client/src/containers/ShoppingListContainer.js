@@ -23,7 +23,7 @@ class ShoppingListContainer extends Component{
 
     if(this.state.shoppingListItems.length === 0){
       return (
-        <div>
+        <div className="text-box">
         <p>Your basket is Empty.</p>
         <a href="/categories">Add some items from your kitchen.</a>
         </div>

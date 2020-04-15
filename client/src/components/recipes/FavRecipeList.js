@@ -38,14 +38,14 @@ class FavRecipeList extends Component{
           const url = "/recipes/" + item.name;
           return (
             <div key={index}>
-            <li><a href={url}>Recipies containing: {item.name}</a></li>
+            <li><a href={url}>Recipes containing: {item.name}</a></li>
             </div>
           )
         });
 
         if(this.state.recipes.length === 0){
           return(
-            <div>
+            <div className="text-box">
             <p>You have no recipes yet, why not search for one of the items in your kitchen?</p>
             {links}
             </div>

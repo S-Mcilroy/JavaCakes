@@ -63,7 +63,9 @@ class RecipeList extends Component{
 
         if(this.state.recipes.length === 0){
           return(
-            <p>Loading...</p>
+            <div className="text-box">
+            <p>No recipies for {this.props.ingredient} found!</p>
+            </div>
           )
         }
 
@@ -82,7 +84,9 @@ class RecipeList extends Component{
             <div className="recipe-container">
             <h1>Recipes Featuring {this.props.ingredient}</h1>
             {recipes}
+            <div className="button-container">
             <button onClick={this.increasePageNumber}>Next Page</button>
+            </div>
             </div>
             </Fragment>
           )
@@ -92,8 +96,10 @@ class RecipeList extends Component{
             <div className="recipe-container">
             <h1>Recipes Featuring {this.props.ingredient}.</h1>
             {recipes}
+            <div className="button-container">
             <button onClick={this.decreasePageNumber}>Previous Page</button>
             <button onClick={this.increasePageNumber}>Next Page</button>
+            </div>
             </div>
             </Fragment>
           )

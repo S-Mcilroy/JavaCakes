@@ -72,7 +72,7 @@ if(this.state.counter === 0 && !yourRecipesTitles.includes(this.props.recipeItem
         <a href= {this.props.recipeItem.href} rel="noopener noreferrer" target='_blank' className="name">{this.props.recipeItem.title}</a>
         <ul>
         {ingredients}
-        <button onClick={this.addToFavRecipes}>Add To Favourites</button>
+        <button onClick={this.addToFavRecipes} id="recipe-button">Add To Favourites</button>
         <hr/>
         </ul>
         </div>

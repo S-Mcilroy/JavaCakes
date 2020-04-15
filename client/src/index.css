@@ -34,6 +34,11 @@ ul {
   list-style-type: none;
 }
 
+button{
+  display: flex;
+  align-self: center;
+}
+
 .welcome h1{
   text-align: center;
   font-size: 50px;
@@ -192,6 +197,9 @@ ul {
   text-align: center;
 }
 
+.recipe-item button{
+}
+
 .recipe-item ul{
   list-style-type: none;
 }
@@ -208,7 +216,7 @@ ul {
 .recipe-container button{
   margin-bottom: 5%;
   font-size: 20px;
-  margin-left: 25%;
+
 }
 
 .category-container{
@@ -299,6 +307,27 @@ ul {
   flex-direction: column;
   justify-content: flex-start;
 }
+
+#fave-button{
+  margin-left: 45%;
+  margin-top: 10px;
+}
+
+#recipe-button{
+  margin-left: 40%;
+  margin-top: 10px;
+}
+
+.button-container{
+  margin-left: 35%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.button-container button{
+  margin: 10px;
+}
+
 {/*#EF9AAF
   #E73740
   #EBEDEA

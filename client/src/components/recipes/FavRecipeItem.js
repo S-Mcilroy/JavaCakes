@@ -47,9 +47,11 @@ class FavRecipeItem extends Component{
           <a href= {this.props.recipeItem.href} target="_blank" rel="noopener noreferrer" className="name">{this.props.recipeItem.title}</a>
           <ul>
           {ingredients}
-          <button onClick={this.handleDelete}>Remove</button>
+          <li><button onClick={this.handleDelete} id="fave-button">Remove</button></li>
+
           <hr/>
           </ul>
+
           </div>
           </Fragment>
         )
@@ -60,9 +62,11 @@ class FavRecipeItem extends Component{
           <p className="name">{this.props.recipeItem.title}</p>
           <ul>
           {ingredients}
-          <button onClick={this.handleDelete}>Remove</button>
+          <li><button onClick={this.handleDelete}>Remove</button></li>
+
           <hr/>
           </ul>
+
           </div>
           </Fragment>
         )

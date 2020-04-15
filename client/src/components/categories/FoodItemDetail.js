@@ -63,7 +63,7 @@ class FoodItemDetail extends Component {
       <FoodItem foodItem = {this.props.foodItem}/>
       <div className = "buttons">
       <button onClick={this.removeStock}>-</button>
-      <p>Stock Level: {this.props.foodItem.stock}</p>
+      <p id="stock-level">Stock Level: {this.props.foodItem.stock}</p>
       <button onClick={this.addToStock}>+</button>
       </div>
       {shoppingButton}

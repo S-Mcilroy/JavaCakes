@@ -39,6 +39,10 @@ button{
   align-self: center;
 }
 
+.main-body {
+  margin-top: 1%;
+}
+
 .welcome h1{
   text-align: center;
   font-size: 50px;
@@ -60,8 +64,7 @@ button{
   padding: 0;
 }
 
-.nav-bar a{
-
+.nav-bar li a{
   display: block;
   background-color: #7D735D;
   text-align: center;
@@ -74,6 +77,10 @@ button{
 /* Change the link color on hover */
 .nav-bar li a:hover {
   background-color: #EBEDEA;
+}
+
+.nav-bar {
+  margin-bottom: 2%
 }
 
 .low-stock-item {
@@ -93,8 +100,8 @@ button{
   display: flex;
   flex-direction: column;
   padding: 5px;
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   border: 1px #7D735D solid;
   margin: 1%;
   background-color: #EBEDEA;
@@ -103,11 +110,6 @@ button{
 
 .welcome h2{
   padding-left: 3%;
-}
-
-.low-stock-container{
-  margin-right: 20%;
-
 }
 
 .low-stock button{
@@ -198,6 +200,8 @@ button{
 }
 
 .recipe-item button{
+  display: flex;
+  justify-content: center;
 }
 
 .recipe-item ul{
@@ -205,7 +209,6 @@ button{
 }
 
 .recipe-item a{
-  padding-left: 4%;
   color: #393A36;
 }
 
@@ -220,7 +223,7 @@ button{
 }
 
 .category-container{
-  margin-right: 30%;
+  margin-right: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -234,11 +237,12 @@ button{
 }
 
 .food-list-item{
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  width: 150px;
-  height: 150px;
+  justify-content: center;
+  display: inline-flex;
+  padding: 1%;
+  width: 23%;
+  height: 10%;
+  min-height: 200px;
   border: 1px #7D735D solid;
   margin: 1%;
   background-color: #EBEDEA;
@@ -284,8 +288,17 @@ button{
   list-style-type: none;
 }
 
+.text-box li a {
+ color: #393A36;
+}
+
+.text-box li a:hover{
+    color: #EF9AAF;
+}
+
 .box-content{
   margin-left: 60%;
+  margin-right: -10%;
   display: inline-block;
 }
 
@@ -314,7 +327,8 @@ button{
 }
 
 #recipe-button{
-  margin-left: 40%;
+  margin-left: 37%;
+  margin-right: 35%;
   margin-top: 10px;
 }
 
@@ -327,6 +341,28 @@ button{
 .button-container button{
   margin: 10px;
 }
+
+#stock-level {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.name {
+  font-weight: bold;;
+}
+
+.category-styles{
+  background-color: #EBEDEA;
+}
+
+.category-styles-header{
+  background-color: #7D735D;
+}
+
+.category-styles-header h1{
+  color: #393A36;
+}
+
 
 {/*#EF9AAF
   #E73740

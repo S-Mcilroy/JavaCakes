@@ -46,7 +46,8 @@ class FavRecipeList extends Component{
         if(this.state.recipes.length === 0){
           return(
             <div className="text-box">
-            <p>You have no recipes yet, why not search for one of the items in your kitchen?</p>
+            <p>You have no recipes yet.</p>
+            <p>Why not search for one of the items in your kitchen?</p>
             {links}
             </div>
           )

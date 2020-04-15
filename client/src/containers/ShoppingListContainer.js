@@ -25,7 +25,9 @@ class ShoppingListContainer extends Component{
       return (
         <div className="text-box">
         <p>Your basket is Empty.</p>
+        <li>
         <a href="/categories">Add some items from your kitchen.</a>
+        </li>
         </div>
       )
     }
